@@ -1,17 +1,18 @@
-import hexToRGBA from '../../src/partials/color'
+import hexToRGBA from '@test/color'
 
 /**
  * Dummy test
  */
 describe('hexToRGBA', () => {
-  function genHex(n) {
-    var text = ''
-    for (var i = 0; i < n; i++)
+  function genHex(n: number): string {
+    let text = ''
+    for (let i = 0; i < n; i++) {
       text += '0123456789ABCDEF'.charAt(Math.floor(Math.random() * 16))
+    }
     return text
   }
 
-  function isNumber(n) {
+  function isNumber(n: number): boolean {
     return !isNaN(parseFloat(n)) && isFinite(n)
   }
 

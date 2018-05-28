@@ -19,18 +19,19 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "tslint -c etc/tslint.yaml -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint-fix": "tslint -c etc/tslint.yaml -t codeFrame 'src/**/*.ts' 'test/**/*.ts' --fix",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
-    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "deploy-docs": "ts-node bin/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "semantic-release-prepare": "ts-node bin/semantic-release-prepare",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -70,7 +71,11 @@
         "statements": 95
       }
     },
-    "collectCoverage": true
+    "collectCoverage": true,
+    "moduleNameMapper": {
+      "@test/?(.*)$": "<rootDir>/src/partials/$1",
+      "@/?(?!(?:babel|ignoreme)/)(.*)$": "<rootDir>/src/$1"
+    }
   },
   "prettier": {
     "semi": false,
@@ -101,6 +106,7 @@
     "semantic-release": "^15.0.0",
     "ts-jest": "^22.0.0",
     "ts-node": "^6.0.0",
+    "tsconfig-paths": "^3.3.2",
     "tslint": "^5.8.0",
     "tslint-config-prettier": "^1.1.0",
     "tslint-config-standard": "^7.0.0",

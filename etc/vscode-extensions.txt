@@ -1,0 +1,1 @@
+Typescript Hero - resolves vscode highlighting errors involving module resolution of custom paths.

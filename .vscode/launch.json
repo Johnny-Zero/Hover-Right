@@ -1,0 +1,95 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Jest All",
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+            "args": [
+                "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Jest Current File",
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+            "args": [
+              "${relativeFile}"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Lint Check All",
+            "program": "${workspaceFolder}/node_modules/tslint/bin/tslint",
+            "args": [
+                "-c",
+                "etc/tslint.yaml",
+                "-t",
+                "codeFrame",
+                "src/**/*.ts",
+                "test/**/*.ts"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Lint Check Current",
+            "program": "${workspaceFolder}/node_modules/tslint/bin/tslint",
+            "args": [
+                "-c",
+                "etc/tslint.yaml",
+                "-t",
+                "codeFrame",
+                "${relativeFile}",
+                "-e",
+                "**/*.(!ts)"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Lint Fix All",
+            "program": "${workspaceFolder}/node_modules/tslint/bin/tslint",
+            "args": [
+                "-c",
+                "etc/tslint.yaml",
+                "-t",
+                "codeFrame",
+                "src/**/*.ts",
+                "test/**/*.ts",
+                "--fix"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Lint Fix Current",
+            "program": "${workspaceFolder}/node_modules/tslint/bin/tslint",
+            "args": [
+                "-c",
+                "etc/tslint.yaml",
+                "-t",
+                "codeFrame",
+                "${relativeFile}",
+                "-e",
+                "**/*.(!ts)",
+                "--fix"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+    ]
+}
