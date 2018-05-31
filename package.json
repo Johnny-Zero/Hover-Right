@@ -72,8 +72,10 @@
       }
     },
     "collectCoverage": true,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.ts",
     "moduleNameMapper": {
-      "@test/?(.*)$": "<rootDir>/src/partials/$1",
+      "@node/?(.*)$": "<rootDir>/node_modules/$1",
+      "@test/?(.*)$": "<rootDir>/test/$1",
       "@/?(?!(?:babel|ignoreme)/)(.*)$": "<rootDir>/src/$1"
     }
   },
@@ -89,8 +91,11 @@
     "coveralls": "^3.0.0",
     "cross-env": "^5.0.1",
     "cz-conventional-changelog": "^2.0.0",
+    "expect-more-jest": "^1.0.1",
     "husky": "^0.14.0",
     "jest": "^22.0.2",
+    "jest-chain": "^1.0.3",
+    "jest-extended": "^0.7.2",
     "lint-staged": "^7.0.0",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.4.4",
@@ -113,5 +118,8 @@
     "typedoc": "^0.11.0",
     "typescript": "^2.6.2",
     "validate-commit-msg": "^2.12.2"
+  },
+  "dependencies": {
+    "esm": "^3.0.41"
   }
 }

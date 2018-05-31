@@ -2,9 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@test/*": ["src/partials/*"],
-      "@/*": ["src/*"],
-      "@*": ["src/*"]
+      "@node/*": ["./node_modules/*"],
+      "@test/*": ["./test/*"],
+      "@/*": ["./src/*"],
+      "@*": ["./src/*"]
     },
     "moduleResolution": "node",
     "target": "es5",
@@ -17,14 +18,17 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
+    "declarationDir": "./dist/types",
+    "outDir": "./dist/lib",
     "typeRoots": [
-      "node_modules/@types"
-    ]
+      "./node_modules/@types",
+      "./node_modules/jest-extended/types",
+      "./types"
+    ],
+
   },
   "include": [
-    "src/**/*",
-    "test/**/*"
+    "./src/**/*",
+    "./test/**/*"
   ]
 }
